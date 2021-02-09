@@ -21,7 +21,8 @@ export const theme = {
     text: '#000',
     background: '#fff',
     primary: '#07c',
-    secondary: '#30c',
+    melon: '#e9afa3',
+    peach: '#f9dec9',
     muted: '#f6f6f6',
   },
   text: {
