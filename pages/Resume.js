@@ -1,6 +1,6 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-import { jsx, Flex, Text, Divider } from 'theme-ui'
+import { jsx, Flex, Text, Divider } from "theme-ui"
 import Layout from "../components/Layout"
 import PageLayout from '../components/PageLayout'
 
