@@ -13,7 +13,7 @@ const Resume = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            margin: '0 auto',
+            margin: "0 auto",
             width: '100%',
             maxWidth: 700,
           }}
