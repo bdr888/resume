@@ -10,7 +10,7 @@ const Resume = () => {
       <PageLayout>
         <Flex
           sx={{
-            flexDirection: 'column',
+            flexDirection: "column",
             justifyContent: 'center',
             alignItems: "center",
             margin: '0 auto',
