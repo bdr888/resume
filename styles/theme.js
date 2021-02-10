@@ -19,17 +19,54 @@ export const theme = {
   },
   colors: {
     text: '#000',
-    background: '#fff',
+    background: '#FAFAFA',
     primary: '#07c',
     melon: '#e9afa3',
     peach: '#f9dec9',
     muted: '#f6f6f6',
+    wildblue: '#99b2dd',
   },
   text: {
     heading: {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
+    },
+  },
+  layout: {
+    root: {
+      bg: 'background',
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+    },
+    header: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      height: '5rem',
+      bg: 'wildblue',
+      px: 3,
+    },
+    main: {
+      flex: '1 1 auto',
+      width: '100%',
+    },
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      maxWidth: 768,
+      mx: 'auto',
+      px: 3,
+    },
+    footer: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      height: '4rem',
+      bg: 'wildblue',
+      px: 3,
     },
   },
   styles: {
