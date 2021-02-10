@@ -1,18 +1,30 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Text, Flex } from 'theme-ui'
 import Link from 'next/link'
 
 const Header = () => {
   return (
-    <header sx={{ height: '4rem', bg: 'melon' }}>
+    <header sx={{ variant: 'layout.header' }}>
+      <Text sx={{ fontSize: [4, 5], fontWeight: 'bold' }}>Brian D. Ridge</Text>
+
       <nav>
         <Link href="/">
-          <a>Home</a>
+          <a sx={{ px: 2 }}>Home</a>
         </Link>
         <Link href="/Resume">
-          <a>Resume</a>
+          <a sx={{ px: 2 }}>Resume</a>
         </Link>
+        <Link href="/Contact">
+          <a sx={{ px: 2 }}>Contact</a>
+        </Link>
+        <a
+          href="https://github.com/briandridge/resume"
+          target="_blank"
+          sx={{ px: 2 }}
+        >
+          Github
+        </a>
       </nav>
     </header>
   )

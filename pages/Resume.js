@@ -3,6 +3,64 @@
 import { jsx, Flex, Text, Divider } from 'theme-ui'
 import Layout from '../components/Layout'
 
+const kc = [
+  'Lead front-end team to build multi-tenant inventory management system.',
+  'Collaborate with leadership to make architecture decisions.',
+  'Maintain client relationship, create requirements, determine scope/effort/risk.',
+  'Chameleon',
+  'Commonwealth',
+]
+
+const sling = [
+  'Implement cross-functional teams and modern product management processes. ',
+  'Lead a cross-team effort to create a UI component library and design system.',
+  'Active voice in the development groups community of practice.',
+  'UI Kit',
+  'Cart',
+]
+const trekchina = [
+  ' Developed brand strategy and managed campaign execution. ',
+  ' Determined sales programs and promotions based on analysis of sales data. ',
+  ' Communicate and bridge across cultures and departments to drive success. ',
+]
+const trek = [
+  'Managed B2B website user support and customer service. ',
+  'Maintain and troubleshoot systems/data integration between website and ERP. ',
+  'Managed B2B marketing, communications, and global product launches. ',
+]
+
+const Position = ({ company, title, tenure, description, children }) => {
+  return (
+    <Flex
+      sx={{
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        width: '100%',
+        pb: 4,
+      }}
+    >
+      <Flex>
+        <Flex
+          sx={{
+            flexDirection: ['column', 'row'],
+            justifyContent: 'space-between',
+            width: '100%',
+            pb: 2,
+          }}
+        >
+          <Text sx={{ fontSize: 2, fontWeight: 'bold' }}>{company}</Text>
+          <Text>{title}</Text>
+        </Flex>
+        <Text>{tenure}</Text>
+      </Flex>
+      {description?.map(item => (
+        <Text key={item}>• {item}</Text>
+      ))}
+      {children}
+    </Flex>
+  )
+}
+
 const Resume = () => {
   return (
     <Layout title="Resume">
@@ -11,98 +69,45 @@ const Resume = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          margin: '0 auto',
-          width: '100%',
-          maxWidth: 700,
         }}
       >
-        <Flex
-          sx={{
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            pb: 3,
-          }}
-        >
-          <Text sx={{ fontSize: 5 }}>Brian D. Ridge</Text>
-          <Text>Software Engineer</Text>
-        </Flex>
-        <Flex
-          sx={{
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Text sx={{ pb: 2 }}>Denver, CO</Text>
-          <Text>brian.d.ridge@gmail.com</Text>
-          <Text>7205120395</Text>
-          <Text>github</Text>
-          <Text>linkedin</Text>
-          <Text>www.briandridge.co</Text>
-        </Flex>
-
-        <Text sx={{ fontWeight: 'bold', pt: 4 }}>Experience</Text>
+        <Text sx={{ fontSize: 3, fontWeight: 'bold', pt: 4 }}>Experience</Text>
         <Divider sx={{ color: 'grey', width: '100%' }} />
-
-        <Flex
-          sx={{
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            width: '100%',
-          }}
-        ></Flex>
-        <Flex sx={{ width: '100%', justifyContent: 'space-between' }}>
-          <Text>Kin + Carta</Text>
-          <Text>Software Engineer</Text>
-          <Text>Oct 2019 - present</Text>
-        </Flex>
-        <Flex
-          sx={{
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-          }}
+        <Position
+          company="Kin + Carta"
+          title="Software Engineer"
+          tenure="Oct 2019 - present"
+          description={kc}
         >
-          <Flex>Magellan</Flex>
-          <Text>
-            • Lead front-end team to build multi-tenant inventory management
-            system.
-          </Text>
-          <Text>
-            • Collaborate with leadership to make architecture decisions.
-          </Text>
-          <Text>
-            • Maintain client relationship, create requirements, determine
-            scope/effort/risk.
-          </Text>
-          <Flex>
-            <Text>Chameleon</Text>
-            <Text>hello</Text>
-          </Flex>
-          <Flex>Commonwealth</Flex>
-          <Text>hello</Text>
-        </Flex>
-        <Flex sx={{ width: '100%', justifyContent: 'space-between', pt: 3 }}>
-          <Text>Sling TV</Text>
-          <Text>Software Engineer</Text>
-          <Text>April 2017 - Oct 2019</Text>
-        </Flex>
-        <Flex sx={{ flexDirection: 'column' }}>
-          <Flex>
-              • Implement cross-functional teams and modern product management
-            processes. 
-          </Flex>
-          <Flex>
-              • Lead a cross-team effort to create a UI component library and
-            design system.
-          </Flex>
-          <Flex>
-              • Active voice in the development group's community of practice.
-          </Flex>
-          <Text>UI Kit</Text>
-          <Text>Cart</Text>
-        </Flex>
+          <Flex
+            sx={{
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+            }}
+          ></Flex>
+        </Position>
+        <Position
+          company="Sling TV"
+          title="Software Engineer"
+          tenure="April 2017 - Oct 2019"
+          description={sling}
+        >
+          <Flex sx={{ flexDirection: 'column' }}></Flex>
+        </Position>
+        <Position
+          company="Trek Bicycle China"
+          title="Marketing and Sales Manager"
+          tenure="Jan 2015 - July 2016"
+          description={trekchina}
+        ></Position>
+
+        <Position
+          company="Trek Bicycle"
+          title="B2B Website Manager"
+          tenure="May 2013 - Jan 2015"
+          description={trek}
+        ></Position>
 
         <Text sx={{ fontWeight: 'bold', pt: 4 }}>
           Principles and Technology
