@@ -38,6 +38,7 @@ const Resume = () => {
           >
             <Text sx={{ pb: 2 }}>Denver, CO</Text>
             <Text>brian.d.ridge@gmail.com</Text>
+            <Text>testing linter</Text>
             <Text>7205120395</Text>
             <Text>github</Text>
             <Text>linkedin</Text>
