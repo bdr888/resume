@@ -20,7 +20,7 @@ const Resume = () => {
         >
           <Flex
             sx={{
-              flexDirection: 'column',
+              flexDirection: "column",
               justifyContent: 'center',
               alignItems: 'center',
               pb: 3,
