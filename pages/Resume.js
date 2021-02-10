@@ -2,7 +2,7 @@
 /* @jsx jsx */
 import { jsx, Flex, Text, Divider } from 'theme-ui'
 import Layout from '../components/Layout'
-import PageLayout from '../components/PageLayout'
+import PageLayout from "../components/PageLayout"
 
 const Resume = () => {
   return (
