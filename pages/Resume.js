@@ -1,7 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 import { jsx, Flex, Text, Divider } from "theme-ui"
-import Layout from "../components/Layout"
+import Layout from '../components/Layout'
 import PageLayout from '../components/PageLayout'
 
 const Resume = () => {
@@ -10,9 +10,9 @@ const Resume = () => {
       <PageLayout>
         <Flex
           sx={{
-            flexDirection: "column",
+            flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: "center",
+            alignItems: 'center',
             margin: '0 auto',
             width: '100%',
             maxWidth: 700,
