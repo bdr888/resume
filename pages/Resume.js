@@ -12,7 +12,7 @@ const Resume = () => {
           sx={{
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: "center",
             margin: '0 auto',
             width: '100%',
             maxWidth: 700,
