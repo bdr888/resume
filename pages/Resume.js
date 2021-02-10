@@ -21,7 +21,7 @@ const Resume = () => {
           <Flex
             sx={{
               flexDirection: "column",
-              justifyContent: 'center',
+              justifyContent: "center",
               alignItems: 'center',
               pb: 3,
             }}
