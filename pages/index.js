@@ -12,7 +12,7 @@ export default function Home() {
     <Layout>
       <Text sx={{ p: 2 }}>
         Hi! I'm using this project to display some of the patterns and
-        approaches I take to designing web apps, as well as deploying sites.
+        approaches I take to designing and deploying web apps.
       </Text>
       <Text sx={{ p: 2 }}>
         See the code on
