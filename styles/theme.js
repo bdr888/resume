@@ -124,4 +124,16 @@ export const theme = {
       borderBottomStyle: 'solid',
     },
   },
+  cards: {
+    resumeSection: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      border: '1px solid lightgrey',
+      borderRadius: 8,
+      bg: 'white',
+      m: 2,
+      px: 3,
+    },
+  },
 }
