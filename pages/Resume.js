@@ -1,6 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-import { jsx, Flex, Text, Divider } from 'theme-ui'
+import React from 'react'
+import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
 import Layout from '../components/Layout'
 
 const kc = [
@@ -29,34 +30,56 @@ const trek = [
   'Managed B2B marketing, communications, and global product launches. ',
 ]
 
-const Position = ({ company, title, tenure, description, children }) => {
+const Position = ({ dates, company, title, tenure, description, children }) => {
   return (
-    <Flex
-      sx={{
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: '100%',
-        pb: 4,
-      }}
-    >
+    <Flex sx={{ flexDirection: 'column' }}>
       <Flex>
+        <div
+          sx={{
+            height: 60,
+            width: 60,
+            border: '1px solid lightgrey',
+            bg: 'salmon',
+          }}
+        ></div>
         <Flex
           sx={{
-            flexDirection: ['column', 'row'],
+            flexDirection: 'column',
             justifyContent: 'space-between',
             width: '100%',
-            pb: 2,
+            pb: 4,
+            pl: 3,
+            bg: 'white',
           }}
         >
-          <Text sx={{ fontSize: 2, fontWeight: 'bold' }}>{company}</Text>
-          <Text>{title}</Text>
+          <Flex
+            sx={{
+              flexDirection: ['column', 'row'],
+              justifyContent: 'space-between',
+            }}
+          >
+            <Flex
+              sx={{
+                flexDirection: ['column'],
+                justifyContent: 'flex-start',
+                pb: 2,
+              }}
+            >
+              <Text sx={{ fontSize: 2, fontWeight: 'bold' }}>{company}</Text>
+              <Text>{title}</Text>
+            </Flex>
+            <Flex sx={{ flexDirection: 'column' }}>
+              <Text sx={{ color: 'grey' }}>{dates}</Text>
+              <Text sx={{ color: 'grey', pl: 1 }}>• {tenure}</Text>
+            </Flex>
+          </Flex>
+          {description?.map(item => (
+            <Text key={item}>• {item}</Text>
+          ))}
+          {children}
         </Flex>
-        <Text>{tenure}</Text>
       </Flex>
-      {description?.map(item => (
-        <Text key={item}>• {item}</Text>
-      ))}
-      {children}
+      <Divider sx={{ color: 'lightgrey', width: '100%' }} />
     </Flex>
   )
 }
@@ -64,19 +87,13 @@ const Position = ({ company, title, tenure, description, children }) => {
 const Resume = () => {
   return (
     <Layout title="Resume">
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Text sx={{ fontSize: 3, fontWeight: 'bold', pt: 4 }}>Experience</Text>
-        <Divider sx={{ color: 'grey', width: '100%' }} />
+      <Card variant="resumeSection">
+        <Text sx={{ fontSize: 3, fontWeight: 'bold', py: 3 }}>Experience</Text>
         <Position
           company="Kin + Carta"
           title="Software Engineer"
-          tenure="Oct 2019 - present"
+          tenure="1 yr 5 mos"
+          dates="Oct 2019 - present"
           description={kc}
         >
           <Flex
@@ -90,7 +107,8 @@ const Resume = () => {
         <Position
           company="Sling TV"
           title="Software Engineer"
-          tenure="April 2017 - Oct 2019"
+          tenure="2 yrs 7 mos"
+          dates="April 2017 - Oct 2019"
           description={sling}
         >
           <Flex sx={{ flexDirection: 'column' }}></Flex>
@@ -98,17 +116,20 @@ const Resume = () => {
         <Position
           company="Trek Bicycle China"
           title="Marketing and Sales Manager"
-          tenure="Jan 2015 - July 2016"
+          dates="Jan 2015 - July 2016"
+          tenure="3 yrs 3 mos"
           description={trekchina}
         ></Position>
 
         <Position
           company="Trek Bicycle"
           title="B2B Website Manager"
-          tenure="May 2013 - Jan 2015"
+          tenure="3yrs 3mos"
+          dates="May 2013 - Jan 2015"
           description={trek}
         ></Position>
-
+      </Card>
+      <Card variant="resumeSection">
         <Text sx={{ fontWeight: 'bold', pt: 4 }}>
           Principles and Technology
         </Text>
@@ -142,9 +163,26 @@ const Resume = () => {
             <Flex>Learning and excited about</Flex>
           </Flex>
         </Flex>
-
+      </Card>
+      <Card variant="resumeSection">
         <Text sx={{ fontWeight: 'bold', pt: 4 }}>Education</Text>
         <Divider sx={{ color: 'grey', width: '100%' }} />
+
+        <Position
+          company="General Assembly"
+          title="Software Engineering Immersive Program"
+          dates="Feb 2017"
+        />
+        <Position
+          company="University of Colorado - Boulder, CO"
+          title="B.A. English Literature; B.A. Chinese Languages and Civilizations"
+          dates="Feb 2017"
+        />
+        <Position
+          company="National Zhengzhi University (国立政治大学) - Taipei, Taiwan"
+          title="Intensive Mandarin Chinese Language Program"
+          dates="Feb 2017"
+        />
 
         <Flex
           sx={{
@@ -152,43 +190,8 @@ const Resume = () => {
             alignItems: 'flex-start',
             width: '100%',
           }}
-        >
-          <Flex sx={{ flexDirection: 'column' }}>
-            <Flex sx={{ justifyContent: 'space-between', pb: 4 }}>
-              <Flex sx={{ flexDirection: 'column' }}>
-                <Text sx={{ fontWeight: 'bold' }}>
-                  General Assembly - Denver, CO
-                </Text>
-                <Text>Software Engineering Immersive Program</Text>
-              </Flex>
-              <Text sx={{ fontWeight: 'bold' }}>Feb 2017</Text>
-            </Flex>
-          </Flex>
-          <Flex sx={{ flexDirection: 'column' }}>
-            <Flex sx={{ justifyContent: 'space-between', pb: 4 }}>
-              <Flex sx={{ flexDirection: 'column' }}>
-                <Text sx={{ fontWeight: 'bold' }}>
-                  University of Colorado - Boulder, CO
-                </Text>
-                <Text>B.A. English Literature</Text>
-                <Text>B.A. Chinese Languages and Civilizations</Text>
-              </Flex>
-              <Text sx={{ fontWeight: 'bold' }}>Feb 2017</Text>
-            </Flex>
-          </Flex>
-          <Flex sx={{ flexDirection: 'column' }}>
-            <Flex sx={{ justifyContent: 'space-between', pb: 4 }}>
-              <Flex sx={{ flexDirection: 'column' }}>
-                <Text sx={{ fontWeight: 'bold' }}>
-                  National Zhengzhi University (国立政治大学) - Taipei, Taiwan
-                </Text>
-                <Text>Intensive Mandarin Chinese Language Program</Text>
-              </Flex>
-              <Text sx={{ fontWeight: 'bold' }}>Feb 2017</Text>
-            </Flex>
-          </Flex>
-        </Flex>
-      </Flex>
+        ></Flex>
+      </Card>
     </Layout>
   )
 }
