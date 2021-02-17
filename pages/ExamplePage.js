@@ -2,14 +2,9 @@
 /* @jsx jsx */
 import { jsx } from 'theme-ui'
 import Layout from '../components/Layout'
-import PageLayout from '../components/PageLayout'
 
 const ExamplePage = () => {
-  return (
-    <Layout>
-      <PageLayout>Example Page</PageLayout>
-    </Layout>
-  )
+  return <Layout>Example Page</Layout>
 }
 
 export default ExamplePage
