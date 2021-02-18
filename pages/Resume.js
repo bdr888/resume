@@ -2,6 +2,7 @@
 /* @jsx jsx */
 import React from 'react'
 import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
+import Image from 'next/image'
 import Layout from '../components/Layout'
 
 const kc = [
@@ -30,18 +31,21 @@ const trek = [
   'Managed B2B marketing, communications, and global product launches. ',
 ]
 
-const Position = ({ dates, company, title, tenure, description, children }) => {
+const Position = ({
+  dates,
+  company,
+  title,
+  tenure,
+  description,
+  children,
+  logoSrc,
+}) => {
   return (
     <Flex sx={{ flexDirection: 'column' }}>
       <Flex>
-        <div
-          sx={{
-            height: 60,
-            width: 60,
-            border: '1px solid lightgrey',
-            bg: 'salmon',
-          }}
-        ></div>
+        <Flex sx={{ width: 60, height: 60, flexShrink: 0 }}>
+          <Image width={60} height={60} src={logoSrc} />
+        </Flex>
         <Flex
           sx={{
             flexDirection: 'column',
@@ -95,6 +99,7 @@ const Resume = () => {
           tenure="1 yr 5 mos"
           dates="Oct 2019 - present"
           description={kc}
+          logoSrc="/KinAndCarta.jpeg"
         >
           <Flex
             sx={{
@@ -110,6 +115,7 @@ const Resume = () => {
           tenure="2 yrs 7 mos"
           dates="April 2017 - Oct 2019"
           description={sling}
+          logoSrc="/sling.jpeg"
         >
           <Flex sx={{ flexDirection: 'column' }}></Flex>
         </Position>
@@ -119,6 +125,7 @@ const Resume = () => {
           dates="Jan 2015 - July 2016"
           tenure="3 yrs 3 mos"
           description={trekchina}
+          logoSrc="/ga.jpeg"
         ></Position>
 
         <Position
@@ -127,6 +134,7 @@ const Resume = () => {
           tenure="3yrs 3mos"
           dates="May 2013 - Jan 2015"
           description={trek}
+          logoSrc="/trek.jpeg"
         ></Position>
       </Card>
       <Card variant="resumeSection">
@@ -172,16 +180,19 @@ const Resume = () => {
           company="General Assembly"
           title="Software Engineering Immersive Program"
           dates="Feb 2017"
+          logoSrc="/ga.jpeg"
         />
         <Position
           company="University of Colorado - Boulder, CO"
           title="B.A. English Literature; B.A. Chinese Languages and Civilizations"
           dates="Feb 2017"
+          logoSrc="/cu.png"
         />
         <Position
           company="National Zhengzhi University (国立政治大学) - Taipei, Taiwan"
           title="Intensive Mandarin Chinese Language Program"
           dates="Feb 2017"
+          logoSrc="/zhengzhi.png"
         />
 
         <Flex
