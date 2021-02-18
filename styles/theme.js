@@ -136,4 +136,9 @@ export const theme = {
       px: 3,
     },
   },
+  links: {
+    inlineText: {
+      fontWeight: 'bold',
+    },
+  },
 }
