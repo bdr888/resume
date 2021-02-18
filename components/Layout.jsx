@@ -3,6 +3,7 @@
 import { jsx } from 'theme-ui'
 import Head from 'next/head'
 import Header from './Header'
+import Footer from './Footer'
 
 // provides header, head, main, container, and footer structure to every page
 const Layout = ({ title, favicon = '/favicon.ico', children }) => {
@@ -16,7 +17,7 @@ const Layout = ({ title, favicon = '/favicon.ico', children }) => {
       <main sx={{ variant: 'layout.main' }}>
         <div sx={{ variant: 'layout.container' }}>{children}</div>
       </main>
-      <footer sx={{ variant: 'layout.footer' }}>footer</footer>
+      <Footer />
     </div>
   )
 }
