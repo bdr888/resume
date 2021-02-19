@@ -41,7 +41,12 @@ const Position = ({
   logoSrc,
 }) => {
   return (
-    <Flex sx={{ flexDirection: 'column' }}>
+    <Flex
+      sx={{
+        flexDirection: 'column',
+        '&:last-child': { '&> hr': { display: 'none' } },
+      }}
+    >
       <Flex>
         <Flex sx={{ width: 60, height: 60, flexShrink: 0 }}>
           <Image width={60} height={60} src={logoSrc} />
@@ -83,7 +88,12 @@ const Position = ({
           {children}
         </Flex>
       </Flex>
-      <Divider sx={{ color: 'lightgrey', width: '100%' }} />
+      <Divider
+        sx={{
+          color: 'lightgrey',
+          width: '100%',
+        }}
+      />
     </Flex>
   )
 }
@@ -138,41 +148,6 @@ const Resume = () => {
         ></Position>
       </Card>
       <Card variant="resumeSection">
-        <Text sx={{ fontWeight: 'bold', pt: 4 }}>
-          Principles and Technology
-        </Text>
-        <Divider sx={{ color: 'grey', width: '100%' }} />
-
-        <Flex
-          sx={{
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            width: '100%',
-          }}
-        >
-          <Flex sx={{ flexDirection: 'column' }}>
-            <Text>web</Text>
-            <Text> JavaScript </Text>
-            <Text>React</Text>
-            <Text>CSS / CSS in JS</Text>
-            <Text>Webpack / Babel</Text>
-            <Text>Docker</Text>
-            <Text>Jest / Enzyme / Selenium</Text>
-            <Text>Cucumber / Gherkin</Text>
-
-            <Text>Functional / declarative programming</Text>
-            <Text>Micro front-ends / Component libraries</Text>
-            <Text>Test driven Development</Text>
-            <Text>Domain driven development</Text>
-            <Text>CI/CD with Gitlab</Text>
-            <Text>Design sprints / Cross functional teams</Text>
-            <Text>Agile / Scrum</Text>
-
-            <Flex>Learning and excited about</Flex>
-          </Flex>
-        </Flex>
-      </Card>
-      <Card variant="resumeSection">
         <Text sx={{ fontWeight: 'bold', pt: 4 }}>Education</Text>
         <Divider sx={{ color: 'grey', width: '100%' }} />
 
@@ -194,14 +169,6 @@ const Resume = () => {
           dates="Feb 2017"
           logoSrc="/zhengzhi.png"
         />
-
-        <Flex
-          sx={{
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            width: '100%',
-          }}
-        ></Flex>
       </Card>
     </Layout>
   )
