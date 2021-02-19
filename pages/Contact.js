@@ -1,6 +1,6 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-import { jsx, Text, Flex } from 'theme-ui'
+import { jsx, Text, Flex, Link } from 'theme-ui'
 import Layout from '../components/Layout'
 
 const Contact = () => {
@@ -14,11 +14,15 @@ const Contact = () => {
         }}
       >
         <Text sx={{ pb: 2 }}>Denver, CO</Text>
-        <Text>brian.d.ridge@gmail.com</Text>
-        <Text>7205120395</Text>
-        <Text>github</Text>
-        <Text>linkedin</Text>
-        <Text>www.briandridge.co</Text>
+        <Link href="mailto:brian.d.ridge@gmail.com">
+          brian.d.ridge@gmail.com
+        </Link>
+        <Link href="https://www.linkedin.com/in/briandridge/" target="_blank">
+          LinkedIn
+        </Link>
+        <Link href="https://github.com/briandridge" target="_blank">
+          Github
+        </Link>
       </Flex>
     </Layout>
   )
