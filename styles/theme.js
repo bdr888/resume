@@ -137,8 +137,12 @@ export const theme = {
     },
   },
   links: {
+    nav: {
+      cursor: 'pointer',
+    },
     inlineText: {
       fontWeight: 'bold',
+      cursor: 'pointer',
     },
   },
 }
