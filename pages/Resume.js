@@ -104,18 +104,19 @@ const Resume = () => {
     <Layout title="Resume">
       <Card variant="resumeSection">
         <Text sx={{ fontSize: 3, fontWeight: 'bold', py: 3 }}>Experience</Text>
-        {data?.positionCollection.items.map(position => (
-          <Position
-            key={position.positionTitle}
-            company={position.company}
-            title={position.positionTitle}
-            tenure={position.tenure}
-            dates={position.dates}
-            description={position.description}
-            // logoSrc="/KinAndCarta.jpeg"
-            logoSrc={position.companyLogo.url}
-          ></Position>
-        ))}
+        {data?.positionCollection.items.map(position => {
+          return (
+            <Position
+              key={position.company}
+              company={position.company}
+              title={position.positionTitle}
+              tenure={position.tenure}
+              dates={position.dates}
+              description={position.description}
+              logoSrc={position.companyLogo.url}
+            ></Position>
+          )
+        })}
       </Card>
       <Card variant="resumeSection">
         <Text sx={{ fontWeight: 'bold', pt: 4 }}>Education</Text>
