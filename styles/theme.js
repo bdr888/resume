@@ -56,9 +56,9 @@ export const theme = {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
-      maxWidth: 768,
+      maxWidth: 868,
       mx: 'auto',
-      px: 3,
+      px: [1, 3],
     },
     footer: {
       display: 'flex',
@@ -133,7 +133,7 @@ export const theme = {
       borderRadius: 8,
       bg: 'white',
       m: 2,
-      px: 3,
+      px: [2, 3],
     },
   },
   links: {

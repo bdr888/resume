@@ -1,6 +1,6 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-
+import { Fragment } from 'react'
 import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -25,13 +25,13 @@ export const GET_ALL_POSITIONS = gql`
 `
 
 const Position = ({
-  dates,
-  company,
-  title,
-  tenure,
-  description,
   children,
+  company,
+  dates,
+  description,
   logoSrc,
+  tenure,
+  title,
 }) => {
   return (
     <Flex
@@ -41,7 +41,14 @@ const Position = ({
       }}
     >
       <Flex>
-        <Flex sx={{ width: 60, height: 60, flexShrink: 0 }}>
+        <Flex
+          sx={{
+            width: 60,
+            height: 60,
+            flexShrink: 0,
+            display: ['none', 'none', 'flex'],
+          }}
+        >
           <Image width={60} height={60} src={logoSrc} />
         </Flex>
         <Flex
@@ -67,18 +74,34 @@ const Position = ({
                 pb: 2,
               }}
             >
-              <Text sx={{ fontSize: 2, fontWeight: 'bold' }}>{company}</Text>
-              <Text>{title}</Text>
+              <Text sx={{ fontSize: [2, 3], fontWeight: 'bold' }}>
+                {company}
+              </Text>
+              <Text sx={{ fontSize: [2, 3] }}>{title}</Text>
             </Flex>
-            <Flex sx={{ flexDirection: 'column' }}>
+            <Flex
+              sx={{
+                flexDirection: ['row', 'column'],
+                alignItems: ['flex-start', 'center'],
+              }}
+            >
               <Text sx={{ color: 'grey' }}>{dates}</Text>
               {tenure ? (
-                <Text sx={{ color: 'grey', pl: 1 }}>{tenure}</Text>
+                <Fragment>
+                  <Text
+                    sx={{ display: ['flex', 'none'], color: 'grey', pl: 1 }}
+                  >
+                    /
+                  </Text>
+                  <Text sx={{ color: 'grey', pl: 1 }}>{tenure}</Text>
+                </Fragment>
               ) : null}
             </Flex>
           </Flex>
           {description?.map(item => (
-            <Text key={item}>• {item}</Text>
+            <Text sx={{ py: 2 }} key={item}>
+              • {item}
+            </Text>
           ))}
           {children}
         </Flex>
