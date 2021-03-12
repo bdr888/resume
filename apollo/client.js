@@ -17,7 +17,6 @@ const httpLink = createHttpLink({
   headers: {
     authorization: `Bearer ${TOKEN}`,
     'Content-Language': 'en-us',
-    'content-type': 'application/json',
   },
 })
 

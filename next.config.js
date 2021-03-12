@@ -7,4 +7,8 @@ module.exports = {
     NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT:
       process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT,
   },
+  images: {
+    // adds doman from contentful - see https://github.com/vercel/next.js/blob/master/errors/next-image-unconfigured-host.md
+    domains: ['images.ctfassets.net'],
+  },
 }
