@@ -32,3 +32,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Weird stuff to know
+
+In Husky v5 git pre-commit hooks do not get created on install. Downgraded specifically to version 4.2.3 to make them work.
+See this issue: https://github.com/typicode/husky/issues/326#issuecomment-769309475

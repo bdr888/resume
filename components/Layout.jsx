@@ -1,6 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 import { jsx } from 'theme-ui'
+import { string, node } from 'prop-types'
 import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
@@ -20,6 +21,12 @@ const Layout = ({ title, favicon = '/favicon.ico', children }) => {
       <Footer />
     </div>
   )
+}
+
+Layout.propTypes = {
+  children: node,
+  favicon: string,
+  title: string,
 }
 
 export default Layout

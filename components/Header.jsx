@@ -23,6 +23,7 @@ const Header = () => {
           href="https://github.com/briandridge/resume"
           target="_blank"
           sx={{ px: 2 }}
+          rel="noreferrer"
         >
           Github
         </a>

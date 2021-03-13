@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write \"**/*.{js,jsx,css,md}\"",
-    "lint": "eslint",
+    "lint": "eslint '*/**/*.{js,jsx}'",
     "lint:fix": "eslint --cache --fix ."
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "graphql-tag": "^2.11.0",
     "next": "10.0.5",
     "next-with-apollo": "^5.1.1",
+    "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "theme-ui": "^0.3.5"
