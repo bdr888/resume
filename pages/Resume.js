@@ -1,31 +1,77 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
+<<<<<<< HEAD
 import { jsx, Flex, Text, Divider } from "theme-ui"
+=======
+import { Fragment } from 'react'
+import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
+import Image from 'next/image'
+>>>>>>> main
 import Layout from '../components/Layout'
-import PageLayout from '../components/PageLayout'
+import { useQuery } from '@apollo/client'
+import gql from 'graphql-tag'
 
-const Resume = () => {
+export const GET_ALL_POSITIONS = gql`
+  query Position {
+    positionCollection {
+      items {
+        company
+        companyLogo {
+          url
+        }
+        positionTitle
+        description
+        dates
+        tenure
+      }
+    }
+  }
+`
+
+const Position = ({
+  children,
+  company,
+  dates,
+  description,
+  logoSrc,
+  tenure,
+  title,
+}) => {
   return (
-    <Layout title="Resume">
-      <PageLayout>
+    <Flex
+      sx={{
+        flexDirection: 'column',
+        '&:last-child': { '&> hr': { display: 'none' } },
+      }}
+    >
+      <Flex>
+        <Flex
+          sx={{
+            width: 60,
+            height: 60,
+            flexShrink: 0,
+            display: ['none', 'none', 'flex'],
+          }}
+        >
+          <Image width={60} height={60} src={logoSrc} />
+        </Flex>
         <Flex
           sx={{
             flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: '0 auto',
+            justifyContent: 'space-between',
             width: '100%',
-            maxWidth: 700,
+            pb: 4,
+            pl: 3,
+            bg: 'white',
           }}
         >
           <Flex
             sx={{
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              pb: 3,
+              flexDirection: ['column', 'row'],
+              justifyContent: 'space-between',
             }}
           >
+<<<<<<< HEAD
             <Text sx={{ fontSize: 5 }}>Brian D. Ridge</Text>
             <Text>Software Engineer</Text>
           </Flex>
@@ -99,95 +145,105 @@ const Resume = () => {
             <Flex>
                 • Lead a cross-team effort to create a UI component library and
               design system.
+=======
+            <Flex
+              sx={{
+                flexDirection: ['column'],
+                justifyContent: 'flex-start',
+                pb: 2,
+              }}
+            >
+              <Text sx={{ fontSize: [2, 3], fontWeight: 'bold' }}>
+                {company}
+              </Text>
+              <Text sx={{ fontSize: [2, 3] }}>{title}</Text>
+>>>>>>> main
             </Flex>
-            <Flex>
-                • Active voice in the development group's community of practice.
-            </Flex>
-            <Text>UI Kit</Text>
-            <Text>Cart</Text>
-          </Flex>
-
-          <Text sx={{ fontWeight: 'bold', pt: 4 }}>
-            Principles and Technology
-          </Text>
-          <Divider sx={{ color: 'grey', width: '100%' }} />
-
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              width: '100%',
-            }}
-          >
-            <Flex sx={{ flexDirection: 'column' }}>
-              <Text>web</Text>
-              <Text> JavaScript </Text>
-              <Text>React</Text>
-              <Text>CSS / CSS in JS</Text>
-              <Text>Webpack / Babel</Text>
-              <Text>Docker</Text>
-              <Text>Jest / Enzyme / Selenium</Text>
-              <Text>Cucumber / Gherkin</Text>
-
-              <Text>Functional / declarative programming</Text>
-              <Text>Micro front-ends / Component libraries</Text>
-              <Text>Test driven Development</Text>
-              <Text>Domain driven development</Text>
-              <Text>CI/CD with Gitlab</Text>
-              <Text>Design sprints / Cross functional teams</Text>
-              <Text>Agile / Scrum</Text>
-
-              <Flex>Learning and excited about</Flex>
+            <Flex
+              sx={{
+                flexDirection: ['row', 'column'],
+                alignItems: ['flex-start', 'center'],
+              }}
+            >
+              <Text sx={{ color: 'grey' }}>{dates}</Text>
+              {tenure ? (
+                <Fragment>
+                  <Text
+                    sx={{ display: ['flex', 'none'], color: 'grey', pl: 1 }}
+                  >
+                    /
+                  </Text>
+                  <Text sx={{ color: 'grey', pl: 1 }}>{tenure}</Text>
+                </Fragment>
+              ) : null}
             </Flex>
           </Flex>
-
-          <Text sx={{ fontWeight: 'bold', pt: 4 }}>Education</Text>
-          <Divider sx={{ color: 'grey', width: '100%' }} />
-
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              width: '100%',
-            }}
-          >
-            <Flex sx={{ flexDirection: 'column' }}>
-              <Flex sx={{ justifyContent: 'space-between', pb: 4 }}>
-                <Flex sx={{ flexDirection: 'column' }}>
-                  <Text sx={{ fontWeight: 'bold' }}>
-                    General Assembly - Denver, CO
-                  </Text>
-                  <Text>Software Engineering Immersive Program</Text>
-                </Flex>
-                <Text sx={{ fontWeight: 'bold' }}>Feb 2017</Text>
-              </Flex>
-            </Flex>
-            <Flex sx={{ flexDirection: 'column' }}>
-              <Flex sx={{ justifyContent: 'space-between', pb: 4 }}>
-                <Flex sx={{ flexDirection: 'column' }}>
-                  <Text sx={{ fontWeight: 'bold' }}>
-                    University of Colorado - Boulder, CO
-                  </Text>
-                  <Text>B.A. English Literature</Text>
-                  <Text>B.A. Chinese Languages and Civilizations</Text>
-                </Flex>
-                <Text sx={{ fontWeight: 'bold' }}>Feb 2017</Text>
-              </Flex>
-            </Flex>
-            <Flex sx={{ flexDirection: 'column' }}>
-              <Flex sx={{ justifyContent: 'space-between', pb: 4 }}>
-                <Flex sx={{ flexDirection: 'column' }}>
-                  <Text sx={{ fontWeight: 'bold' }}>
-                    National Zhengzhi University (国立政治大学) - Taipei, Taiwan
-                  </Text>
-                  <Text>Intensive Mandarin Chinese Language Program</Text>
-                </Flex>
-                <Text sx={{ fontWeight: 'bold' }}>Feb 2017</Text>
-              </Flex>
-            </Flex>
-          </Flex>
+          {description?.map(item => (
+            <Text sx={{ py: 2 }} key={item}>
+              • {item}
+            </Text>
+          ))}
+          {children}
         </Flex>
-      </PageLayout>
+      </Flex>
+      <Divider
+        sx={{
+          color: 'lightgrey',
+          width: '100%',
+        }}
+      />
+    </Flex>
+  )
+}
+
+const Resume = () => {
+  const { loading, data, error } = useQuery(GET_ALL_POSITIONS)
+
+  if (loading) return <div>loading...</div>
+
+  if (error) return <div>error...</div>
+
+  return (
+    <Layout title="Resume">
+      <Card variant="resumeSection">
+        <Text sx={{ fontSize: 3, fontWeight: 'bold', py: 3 }}>Experience</Text>
+        {data?.positionCollection.items.map(position => {
+          return (
+            <Position
+              key={position.company}
+              company={position.company}
+              title={position.positionTitle}
+              tenure={position.tenure}
+              dates={position.dates}
+              description={position.description}
+              logoSrc={position.companyLogo.url}
+            ></Position>
+          )
+        })}
+      </Card>
+      <Card variant="resumeSection">
+        <Text sx={{ fontWeight: 'bold', pt: 4 }}>Education</Text>
+        <Divider sx={{ color: 'grey', width: '100%' }} />
+
+        <Position
+          company="General Assembly"
+          title="Software Engineering Immersive Program"
+          dates="Feb 2017"
+          logoSrc="/ga.jpeg"
+        />
+        <Position
+          company="University of Colorado - Boulder, CO"
+          title="B.A. English Literature; B.A. Chinese Languages and Civilizations"
+          dates="Feb 2017"
+          logoSrc="/cu.png"
+        />
+        <Position
+          company="National Zhengzhi University (国立政治大学) - Taipei, Taiwan"
+          title="Intensive Mandarin Chinese Language Program"
+          dates="Feb 2017"
+          logoSrc="/zhengzhi.png"
+        />
+      </Card>
     </Layout>
   )
 }

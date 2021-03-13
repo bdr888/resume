@@ -3,45 +3,37 @@
 
 // see this issue about the jsxRuntime classic thing: https://github.com/vercel/next.js/discussions/18440
 
-import { jsx } from 'theme-ui'
-import styles from '../styles/Home.module.css'
+import { jsx, Text, Flex } from 'theme-ui'
+// import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout'
-import PageLayout from '../components/PageLayout'
+import { useQuery } from '@apollo/client'
+import gql from 'graphql-tag'
 
+export const GET_INTODUCTION = gql`
+  query Introduction {
+    introduction(id: "6qvmw5D39EZLXedzxuN9L8") {
+      introduction {
+        json
+      }
+    }
+  }
+`
 export default function Home() {
+  const { loading, data, error } = useQuery(GET_INTODUCTION)
+
+  if (loading) return <div>loading...</div>
+
+  if (error) return <div>error...</div>
+
   return (
     <Layout>
-      <PageLayout>
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </PageLayout>
+      <Flex sx={{ flexDirection: 'column', pt: 4 }}>
+        {data.introduction.introduction.json.content.map(paragraph => (
+          <Text key={paragraph.content[0].value} sx={{ p: 2 }}>
+            {paragraph.content[0].value}
+          </Text>
+        ))}
+      </Flex>
     </Layout>
   )
 }
