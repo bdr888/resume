@@ -1,6 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 import { Fragment } from 'react'
+import { node } from 'prop-types'
 import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -114,6 +115,16 @@ const Position = ({
       />
     </Flex>
   )
+}
+
+Position.propTypes = {
+  children: node,
+  company: string,
+  dates: string,
+  description: string,
+  logoSrc: string,
+  tenure: string,
+  title: string,
 }
 
 const Resume = () => {
