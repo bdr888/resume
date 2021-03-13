@@ -1,12 +1,8 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-<<<<<<< HEAD
-import { jsx, Flex, Text, Divider } from "theme-ui"
-=======
 import { Fragment } from 'react'
 import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
 import Image from 'next/image'
->>>>>>> main
 import Layout from '../components/Layout'
 import { useQuery } from '@apollo/client'
 import gql from 'graphql-tag'
@@ -71,81 +67,6 @@ const Position = ({
               justifyContent: 'space-between',
             }}
           >
-<<<<<<< HEAD
-            <Text sx={{ fontSize: 5 }}>Brian D. Ridge</Text>
-            <Text>Software Engineer</Text>
-          </Flex>
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <Text sx={{ pb: 2 }}>Denver, CO</Text>
-            <Text>brian.d.ridge@gmail.com</Text>
-            <Text>testing linter</Text>
-            <Text>7205120395</Text>
-            <Text>github</Text>
-            <Text>linkedin</Text>
-            <Text>www.briandridge.co</Text>
-          </Flex>
-
-          <Text sx={{ fontWeight: 'bold', pt: 4 }}>Experience</Text>
-          <Divider sx={{ color: 'grey', width: '100%' }} />
-
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              width: '100%',
-            }}
-          ></Flex>
-          <Flex sx={{ width: '100%', justifyContent: 'space-between' }}>
-            <Text>Kin + Carta</Text>
-            <Text>Software Engineer</Text>
-            <Text>Oct 2019 - present</Text>
-          </Flex>
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              justifyContent: 'flex-start',
-              alignItems: 'flex-start',
-            }}
-          >
-            <Flex>Magellan</Flex>
-            <Text>
-              • Lead front-end team to build multi-tenant inventory management
-              system.
-            </Text>
-            <Text>
-              • Collaborate with leadership to make architecture decisions.
-            </Text>
-            <Text>
-              • Maintain client relationship, create requirements, determine
-              scope/effort/risk.
-            </Text>
-            <Flex>
-              <Text>Chameleon</Text>
-              <Text>hello</Text>
-            </Flex>
-            <Flex>Commonwealth</Flex>
-            <Text>hello</Text>
-          </Flex>
-          <Flex sx={{ width: '100%', justifyContent: 'space-between', pt: 3 }}>
-            <Text>Sling TV</Text>
-            <Text>Software Engineer</Text>
-            <Text>April 2017 - Oct 2019</Text>
-          </Flex>
-          <Flex sx={{ flexDirection: 'column' }}>
-            <Flex>
-                • Implement cross-functional teams and modern product management
-              processes. 
-            </Flex>
-            <Flex>
-                • Lead a cross-team effort to create a UI component library and
-              design system.
-=======
             <Flex
               sx={{
                 flexDirection: ['column'],
@@ -157,7 +78,6 @@ const Position = ({
                 {company}
               </Text>
               <Text sx={{ fontSize: [2, 3] }}>{title}</Text>
->>>>>>> main
             </Flex>
             <Flex
               sx={{
