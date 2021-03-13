@@ -4,7 +4,7 @@ import { Fragment } from "react"
 import { jsx, Card, Flex, Text, Divider } from "theme-ui"
 import Image from "next/image"
 import Layout from "../components/Layout"
-import { useQuery } from '@apollo/client'
+import { useQuery } from "@apollo/client"
 import gql from 'graphql-tag'
 
 export const GET_ALL_POSITIONS = gql`
