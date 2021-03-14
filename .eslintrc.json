@@ -12,7 +12,11 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {},
+  "rules": {
+    "react/jsx-sort-props": "error",
+    "react/jsx-sort-default-props": "error",
+    "react/sort-prop-types": "error"
+  },
   "settings": {
     "react": {
       "version": "detect"
