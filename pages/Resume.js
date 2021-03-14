@@ -1,7 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 import { Fragment } from 'react'
-import { node } from 'prop-types'
+import { node, string } from 'prop-types'
 import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -50,7 +50,7 @@ const Position = ({
             display: ['none', 'none', 'flex'],
           }}
         >
-          <Image width={60} height={60} src={logoSrc} />
+          <Image height={60} src={logoSrc} width={60} />
         </Flex>
         <Flex
           sx={{
@@ -59,7 +59,6 @@ const Position = ({
             width: '100%',
             pb: 4,
             pl: 3,
-            bg: 'white',
           }}
         >
           <Flex
@@ -75,10 +74,23 @@ const Position = ({
                 pb: 2,
               }}
             >
-              <Text sx={{ fontSize: [2, 3], fontWeight: 'bold' }}>
+              <Text
+                sx={{
+                  fontSize: [2, 3],
+                  fontFamily: 'heading',
+                }}
+              >
                 {company}
               </Text>
-              <Text sx={{ fontSize: [2, 3] }}>{title}</Text>
+              <Text
+                sx={{
+                  fontSize: [2, 3],
+                  fontFamily: 'heading',
+                  fontWeight: '600',
+                }}
+              >
+                {title}
+              </Text>
             </Flex>
             <Flex
               sx={{
@@ -86,7 +98,7 @@ const Position = ({
                 alignItems: ['flex-start', 'center'],
               }}
             >
-              <Text sx={{ color: 'grey' }}>{dates}</Text>
+              <Text sx={{ color: 'grey', fontFamily: 'heading' }}>{dates}</Text>
               {tenure ? (
                 <Fragment>
                   <Text
@@ -94,13 +106,15 @@ const Position = ({
                   >
                     /
                   </Text>
-                  <Text sx={{ color: 'grey', pl: 1 }}>{tenure}</Text>
+                  <Text sx={{ color: 'grey', pl: 1, fontFamily: 'heading' }}>
+                    {tenure}
+                  </Text>
                 </Fragment>
               ) : null}
             </Flex>
           </Flex>
           {description?.map(item => (
-            <Text sx={{ py: 2 }} key={item}>
+            <Text key={item} sx={{ py: 2 }}>
               • {item}
             </Text>
           ))}
@@ -137,42 +151,64 @@ const Resume = () => {
   return (
     <Layout title="Resume">
       <Card variant="resumeSection">
-        <Text sx={{ fontSize: 3, fontWeight: 'bold', py: 3 }}>Experience</Text>
+        <Text
+          sx={{
+            fontFamily: 'Montserrat',
+            fontSize: 4,
+            pt: 3,
+          }}
+        >
+          Experience
+        </Text>
+        <Divider sx={{ mb: 4 }} />
         {data?.positionCollection.items.map(position => {
           return (
             <Position
-              key={position.company}
               company={position.company}
-              title={position.positionTitle}
-              tenure={position.tenure}
               dates={position.dates}
               description={position.description}
+              key={position.company}
               logoSrc={position.companyLogo.url}
+              tenure={position.tenure}
+              title={position.positionTitle}
             ></Position>
           )
         })}
       </Card>
       <Card variant="resumeSection">
-        <Text sx={{ fontWeight: 'bold', pt: 4 }}>Education</Text>
-        <Divider sx={{ color: 'grey', width: '100%' }} />
+        <Text
+          sx={{
+            fontFamily: 'Montserrat',
+            fontSize: 4,
+            pt: 3,
+          }}
+        >
+          Education
+        </Text>
+        <Divider sx={{ mb: 4, color: 'grey', width: '100%' }} />
 
         <Position
           company="General Assembly"
-          title="Software Engineering Immersive Program"
           dates="Feb 2017"
           logoSrc="/ga.jpeg"
+          title="Software Engineering Immersive Program"
         />
         <Position
           company="University of Colorado - Boulder, CO"
-          title="B.A. English Literature; B.A. Chinese Languages and Civilizations"
           dates="Feb 2017"
           logoSrc="/cu.png"
+          title={
+            <span>
+              <div>B.A. English Literature;</div>
+              <div>B.A. Chinese Languages and Civilizations</div>
+            </span>
+          }
         />
         <Position
           company="National Zhengzhi University (国立政治大学) - Taipei, Taiwan"
-          title="Intensive Mandarin Chinese Language Program"
           dates="Feb 2017"
           logoSrc="/zhengzhi.png"
+          title="Intensive Mandarin Chinese Language Program"
         />
       </Card>
     </Layout>
