@@ -3,8 +3,7 @@
 
 // see this issue about the jsxRuntime classic thing: https://github.com/vercel/next.js/discussions/18440
 
-import { jsx, Text, Flex } from 'theme-ui'
-// import styles from '../styles/Home.module.css'
+import { jsx, Text, Flex, Divider } from 'theme-ui'
 import Layout from '../components/Layout'
 import { useQuery } from '@apollo/client'
 import gql from 'graphql-tag'
@@ -27,7 +26,17 @@ export default function Home() {
 
   return (
     <Layout>
-      <Flex sx={{ flexDirection: 'column', pt: 4 }}>
+      <Text
+        sx={{
+          fontFamily: 'Montserrat',
+          fontSize: 4,
+          pt: 3,
+        }}
+      >
+        About
+      </Text>
+      <Divider sx={{ mb: 4 }} />
+      <Flex sx={{ flexDirection: 'column' }}>
         {data.introduction.introduction.json.content.map(paragraph => (
           <Text key={paragraph.content[0].value} sx={{ p: 2 }}>
             {paragraph.content[0].value}
