@@ -6,24 +6,37 @@ import Link from 'next/link'
 const Header = () => {
   return (
     <header sx={{ variant: 'layout.header' }}>
-      <Text sx={{ fontSize: [4, 5], fontWeight: 'bold', cursor: 'pointer' }}>
-        <Link href="/">
-          <a sx={{ px: 2, cursor: 'pointer' }}>Brian D. Ridge</a>
-        </Link>
-      </Text>
+      <Link href="/">
+        <a sx={{ px: 2, cursor: 'pointer' }}>
+          <Text
+            sx={{
+              fontFamily: 'brand',
+              fontSize: [5, 6],
+              fontWeight: 'bold',
+              letterSpacing: '0.6rem',
+            }}
+          >
+            Brian D. Ridge
+          </Text>
+        </a>
+      </Link>
 
       <nav>
         <Link href="/Resume">
-          <a sx={{ px: 2, cursor: 'pointer' }}>Resume</a>
+          <a sx={{ px: 2, cursor: 'pointer', fontFamily: 'Montserrat' }}>
+            Resume
+          </a>
         </Link>
-        <Link href="/Contact">
-          <a sx={{ px: 2, cursor: 'pointer' }}>Contact</a>
+        <Link href="/Blog">
+          <a sx={{ px: 2, cursor: 'pointer', fontFamily: 'Montserrat' }}>
+            Blog
+          </a>
         </Link>
         <a
           href="https://github.com/briandridge/resume"
-          target="_blank"
-          sx={{ px: 2 }}
           rel="noreferrer"
+          sx={{ px: 2, cursor: 'pointer', fontFamily: 'Montserrat' }}
+          target="_blank"
         >
           Github
         </a>

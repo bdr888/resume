@@ -1,11 +1,14 @@
+import { text } from './text'
+
 export const theme = {
   breakpoints: ['40em', '52em', '64em'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
     body:
       'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'inherit',
+    heading: 'Montserrat',
     monospace: 'Menlo, monospace',
+    brand: 'Norwester',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
@@ -26,13 +29,7 @@ export const theme = {
     muted: '#f6f6f6',
     wildblue: '#99b2dd',
   },
-  text: {
-    heading: {
-      fontFamily: 'heading',
-      lineHeight: 'heading',
-      fontWeight: 'heading',
-    },
-  },
+  text,
   layout: {
     root: {
       bg: 'background',
@@ -42,11 +39,11 @@ export const theme = {
     },
     header: {
       display: 'flex',
+      flexDirection: 'column',
       justifyContent: 'space-between',
       alignItems: 'center',
-      height: '5rem',
-      bg: 'wildblue',
       px: 3,
+      pt: 4,
     },
     main: {
       flex: '1 1 auto',
@@ -56,7 +53,7 @@ export const theme = {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
-      maxWidth: 868,
+      maxWidth: 768,
       mx: 'auto',
       px: [1, 3],
     },
@@ -129,16 +126,16 @@ export const theme = {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      border: '1px solid lightgrey',
-      borderRadius: 8,
-      bg: 'white',
-      m: 2,
-      px: [2, 3],
+      // border: '1px solid lightgrey',
+      // borderRadius: 8,
+      // m: 2,
+      // px: [2, 3],
     },
   },
   links: {
     nav: {
       cursor: 'pointer',
+      fontFamily: 'heading',
     },
     inlineText: {
       fontWeight: 'bold',

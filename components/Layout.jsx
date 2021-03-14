@@ -6,19 +6,18 @@ import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
 
-// provides header, head, main, container, and footer structure to every page
+// provides header, head, main, and container structure to every page
 const Layout = ({ title, favicon = '/favicon.ico', children }) => {
   return (
     <div sx={{ variant: 'layout.root' }}>
       <Head>
         <title>Brian D. Ridge {title ? `| ${title}` : null}</title>
-        <link rel="icon" href={favicon} />
+        <link href={favicon} rel="icon" />
       </Head>
       <Header />
       <main sx={{ variant: 'layout.main' }}>
         <div sx={{ variant: 'layout.container' }}>{children}</div>
       </main>
-      <Footer />
     </div>
   )
 }
