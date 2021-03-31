@@ -1,7 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 import { Fragment } from 'react'
-import { node, string } from 'prop-types'
+import { node, string, arrayOf } from 'prop-types'
 import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -135,7 +135,7 @@ Position.propTypes = {
   children: node,
   company: string,
   dates: string,
-  description: string,
+  description: arrayOf(string),
   logoSrc: string,
   tenure: string,
   title: string,
@@ -175,7 +175,7 @@ const Resume = () => {
           )
         })}
       </Card>
-      <Card variant="resumeSection">
+      {/* <Card variant="resumeSection">
         <Text
           sx={{
             fontFamily: 'Montserrat',
@@ -210,7 +210,7 @@ const Resume = () => {
           logoSrc="/zhengzhi.png"
           title="Intensive Mandarin Chinese Language Program"
         />
-      </Card>
+      </Card> */}
     </Layout>
   )
 }
