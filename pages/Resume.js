@@ -1,7 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 import { Fragment } from 'react'
-import { node, string } from 'prop-types'
+import { node, string, array } from 'prop-types'
 import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -135,23 +135,20 @@ Position.propTypes = {
   children: node,
   company: string,
   dates: string,
-  description: string,
+  description: array,
   logoSrc: string,
   tenure: string,
-  title: string,
+  // title: string,
 }
 
 const Resume = () => {
   const { loading, data, error } = useQuery(GET_ALL_POSITIONS)
 
-  if (loading) return <div>loading...</div>
-
-  if (error) return <div>error...</div>
-
   return (
     <Layout title="Resume">
       <Card variant="resumeSection">
         <Text
+          as="h2"
           sx={{
             fontFamily: 'Montserrat',
             fontSize: 4,
@@ -161,21 +158,27 @@ const Resume = () => {
           Experience
         </Text>
         <Divider sx={{ mb: 4 }} />
-        {data?.positionCollection.items.map(position => {
-          return (
-            <Position
-              company={position.company}
-              dates={position.dates}
-              description={position.description}
-              key={position.company}
-              logoSrc={position.companyLogo.url}
-              tenure={position.tenure}
-              title={position.positionTitle}
-            ></Position>
-          )
-        })}
+        {loading ? (
+          <div>loading...</div>
+        ) : error ? (
+          <div>error...</div>
+        ) : (
+          data.positionCollection.items.map(position => {
+            return (
+              <Position
+                company={position.company}
+                dates={position.dates}
+                description={position.description}
+                key={position.company}
+                logoSrc={position.companyLogo.url}
+                tenure={position.tenure}
+                title={position.positionTitle}
+              ></Position>
+            )
+          })
+        )}
       </Card>
-      <Card variant="resumeSection">
+      {/* <Card variant="resumeSection">
         <Text
           sx={{
             fontFamily: 'Montserrat',
@@ -210,7 +213,7 @@ const Resume = () => {
           logoSrc="/zhengzhi.png"
           title="Intensive Mandarin Chinese Language Program"
         />
-      </Card>
+      </Card> */}
     </Layout>
   )
 }
