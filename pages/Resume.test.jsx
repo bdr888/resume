@@ -117,9 +117,6 @@ describe('Resume', () => {
       </MockedProvider>
     )
 
-    // pause to move on next in event queue, from loading to response
-    // await new Promise(resolve => setTimeout(resolve, 0))
-
     const heading = await screen.findByRole('heading', /Resume/i)
     expect(heading).toBeInTheDocument()
   })
