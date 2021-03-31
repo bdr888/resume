@@ -3,8 +3,12 @@
 import { jsx } from 'theme-ui'
 import Layout from '../components/Layout'
 
-const ExamplePage = () => {
-  return <Layout>Example Page</Layout>
+const Sandbox = () => {
+  return (
+    <Layout>
+      <div>hello</div>
+    </Layout>
+  )
 }
 
-export default ExamplePage
+export default Sandbox
