@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '../../test/test-utils'
+import { render, screen } from '../test/test-utils'
 import Resume, { GET_ALL_POSITIONS } from '@pages/Resume'
 import { MockedProvider } from '@apollo/client/testing'
 
