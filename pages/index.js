@@ -27,6 +27,7 @@ export default function Home() {
   return (
     <Layout>
       <Text
+        as="h2"
         sx={{
           fontFamily: 'Montserrat',
           fontSize: 4,
