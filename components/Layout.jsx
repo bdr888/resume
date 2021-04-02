@@ -3,8 +3,7 @@
 import { jsx } from 'theme-ui'
 import { string, node } from 'prop-types'
 import Head from 'next/head'
-import Header from './Header'
-import Footer from './Footer'
+import Header from '@components/Header'
 
 // provides header, head, main, and container structure to every page
 const Layout = ({ title, favicon = '/favicon.ico', children }) => {

@@ -1,7 +1,7 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 import { Fragment } from 'react'
-import { node, string, array } from 'prop-types'
+import { node, string, arrayOf } from 'prop-types'
 import { jsx, Card, Flex, Text, Divider } from 'theme-ui'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -135,7 +135,7 @@ Position.propTypes = {
   children: node,
   company: string,
   dates: string,
-  description: array,
+  description: arrayOf(string),
   logoSrc: string,
   tenure: string,
   // title: string,
