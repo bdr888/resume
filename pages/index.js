@@ -33,7 +33,7 @@ export default function Home() {
           pt: 3,
         }}
       >
-        About
+        About ME slkdjflskdjfosidjfsidjfosdijfosijf
       </Text>
       <Divider sx={{ mb: 4 }} />
       <Flex sx={{ flexDirection: 'column' }}>
