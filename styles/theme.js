@@ -131,6 +131,14 @@ export const theme = {
       // m: 2,
       // px: [2, 3],
     },
+    dataCard: {
+      display: 'flex',
+      border: '1px solid lightgrey',
+      borderRadius: 8,
+      px: 4,
+      py: 2,
+      m: 2,
+    },
   },
   links: {
     nav: {

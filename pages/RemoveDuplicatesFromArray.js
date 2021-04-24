@@ -2,7 +2,7 @@
 /* @jsx jsx */
 import { jsx } from 'theme-ui'
 import Layout from '../components/Layout'
-import DataCard from '../components/DataCard'
+import RemoveDuplicates from '@components/RemoveDuplicates'
 
 // https://www.javascripttutorial.net/array/javascript-remove-duplicates-from-array/
 // https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c
@@ -12,13 +12,12 @@ const removeDuplicatesFromArray = arr =>
   arr.filter((item, index) => arr.indexOf(item) === index)
 const dedupedresult = removeDuplicatesFromArray(arrayWithDuplicates)
 
-const Sandbox = () => {
+const RemoveDuplicatesPage = () => {
   return (
     <Layout>
-      <DataCard data={dedupedresult} />
-      <DataCard data={[]} />
+      <RemoveDuplicates data={dedupedresult} />
     </Layout>
   )
 }
 
-export default Sandbox
+export default RemoveDuplicatesPage

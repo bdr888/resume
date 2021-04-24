@@ -31,7 +31,8 @@ const isMatching = s => {
       // (s[i] === ']' && lastChar === '[') ||
       // (s[i] === ')' && lastChar === '(')
     ) {
-      stack.pop()
+      stack.pop() === lastChar ? console.log('yes') : console.log('no')
+
       console.log('🤘💀🔥🤘💀🔥', 'stack: ', stack, '🤘💀🔥🤘💀🔥')
     } else return false
   }
