@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header sx={{ variant: 'layout.header' }}>
       <Link href="/">
-        <a sx={{ px: 2, cursor: 'pointer' }}>
+        <a sx={{ px: 2, pb: 2, cursor: 'pointer' }}>
           <Text
             sx={{
               fontFamily: 'brand',
@@ -23,19 +23,19 @@ const Header = () => {
 
       <nav>
         <Link href="/Resume">
-          <a sx={{ px: 2, cursor: 'pointer', fontFamily: 'Montserrat' }}>
+          <a sx={{ px: 3, cursor: 'pointer', fontFamily: 'Montserrat' }}>
             Resume
           </a>
         </Link>
         <Link href="/blog">
-          <a sx={{ px: 2, cursor: 'pointer', fontFamily: 'Montserrat' }}>
+          <a sx={{ px: 3, cursor: 'pointer', fontFamily: 'Montserrat' }}>
             Blog
           </a>
         </Link>
         <a
           href="https://github.com/briandridge/resume"
           rel="noreferrer"
-          sx={{ px: 2, cursor: 'pointer', fontFamily: 'Montserrat' }}
+          sx={{ px: 3, cursor: 'pointer', fontFamily: 'Montserrat' }}
           target="_blank"
         >
           Github
