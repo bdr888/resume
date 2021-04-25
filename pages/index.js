@@ -1,12 +1,11 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-
 // see this issue about the jsxRuntime classic thing: https://github.com/vercel/next.js/discussions/18440
 
-import { jsx, Text, Flex, Divider } from 'theme-ui'
+import { jsx, Text, Flex, Spinner } from 'theme-ui'
 import Layout from '../components/Layout'
-import { useQuery } from '@apollo/client'
 import gql from 'graphql-tag'
+import DataFetcher from '@components/DataFetcherComponent'
 
 export const GET_INTODUCTION = gql`
   query Introduction {
@@ -17,33 +16,21 @@ export const GET_INTODUCTION = gql`
     }
   }
 `
-export default function Home() {
-  const { loading, data, error } = useQuery(GET_INTODUCTION)
 
-  if (loading) return <div>loading...</div>
+const Home = () => (
+  <Layout pageHeading="About">
+    <Flex sx={{ flexDirection: 'column' }}>
+      <DataFetcher query={GET_INTODUCTION}>
+        {data =>
+          data.introduction.introduction.json.content.map(paragraph => (
+            <Text key={paragraph.content[0].value} sx={{ p: 2 }}>
+              {paragraph.content[0].value}
+            </Text>
+          ))
+        }
+      </DataFetcher>
+    </Flex>
+  </Layout>
+)
 
-  if (error) return <div>error...</div>
-
-  return (
-    <Layout>
-      <Text
-        as="h2"
-        sx={{
-          fontFamily: 'Montserrat',
-          fontSize: 4,
-          pt: 3,
-        }}
-      >
-        About
-      </Text>
-      <Divider sx={{ mb: 4 }} />
-      <Flex sx={{ flexDirection: 'column' }}>
-        {data.introduction.introduction.json.content.map(paragraph => (
-          <Text key={paragraph.content[0].value} sx={{ p: 2 }}>
-            {paragraph.content[0].value}
-          </Text>
-        ))}
-      </Flex>
-    </Layout>
-  )
-}
+export default Home
