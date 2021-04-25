@@ -55,7 +55,7 @@ export const theme = {
       justifyContent: 'flex-start',
       maxWidth: 768,
       mx: 'auto',
-      px: [1, 3],
+      px: 3,
     },
     footer: {
       display: 'flex',
