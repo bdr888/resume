@@ -27,7 +27,7 @@ const Header = () => {
             Resume
           </a>
         </Link>
-        <Link href="/Blog">
+        <Link href="/blog">
           <a sx={{ px: 2, cursor: 'pointer', fontFamily: 'Montserrat' }}>
             Blog
           </a>
