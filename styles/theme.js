@@ -55,7 +55,7 @@ export const theme = {
       justifyContent: 'flex-start',
       maxWidth: 768,
       mx: 'auto',
-      px: [1, 3],
+      px: 3,
     },
     footer: {
       display: 'flex',
@@ -122,6 +122,12 @@ export const theme = {
     },
   },
   cards: {
+    primary: {
+      padding: 2,
+      marginBottom: 3,
+      borderRadius: 4,
+      boxShadow: '0 0 8px rgba(0, 0, 0, 0.125)',
+    },
     resumeSection: {
       flexDirection: 'column',
       justifyContent: 'center',
