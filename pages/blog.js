@@ -12,6 +12,9 @@ export const GET_ALL_BLOG_POSTS = gql`
   query {
     blogPostCollection {
       items {
+        sys {
+          id
+        }
         title
         subtitle
         slug
@@ -27,9 +30,6 @@ export const GET_ALL_BLOG_POSTS = gql`
     }
   }
 `
-
-// const router = useRouter()
-// const { slug } = router.query
 
 const Blog = () => {
   return (
@@ -47,7 +47,15 @@ const Blog = () => {
               }}
               variant="primary"
             >
-              <Link href={`/blog/${encodeURIComponent(post.slug)}`}>
+              <Link
+                href={{
+                  pathname: '/blog/[slug]/[id]',
+                  query: {
+                    slug: encodeURIComponent(post.slug),
+                    id: post.sys.id,
+                  },
+                }}
+              >
                 <div>
                   <Text as="h3">{post.title}</Text>
                   {/* {post.image ? (
