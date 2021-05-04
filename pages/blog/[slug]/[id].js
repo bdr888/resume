@@ -67,31 +67,6 @@ const BlogPostContent = () => {
 }
 
 const BlogPost = () => {
-  // const router = useRouter()
-  // const { id } = router.query
-
-  // const { loading, data, error } = useQuery(GET_BLOG_POST, {
-  //   variables: { id },
-  // })
-
-  // if (loading)
-  //   return (
-  //     <Flex
-  //       sx={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}
-  //     >
-  //       <Spinner />
-  //     </Flex>
-  //   )
-
-  // if (error)
-  //   return (
-  //     <Flex
-  //       sx={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}
-  //     >
-  //       {error.message}
-  //     </Flex>
-  //   )
-
   return (
     <Layout pageHeading="Blog">
       <BlogPostContent />
