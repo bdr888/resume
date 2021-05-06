@@ -1,3 +1,7 @@
+## Hello!
+Thanks for taking the time to look at my project. All code for the challenge can be found in pages/index.js and hooks/useFetch.js. See the below instructions for running the app locally.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
