@@ -2,7 +2,7 @@
 /* @jsx jsx */
 import { jsx, Button, Text, Flex, Divider, Spinner } from 'theme-ui'
 import Layout from '@components/Layout'
-import useFetch from '../hooks/useFetch'
+import useFetch from '../../hooks/useFetch'
 
 const API_TOKEN = 'cea989680cf62281d5b4d6329b8b'
 
@@ -122,20 +122,14 @@ const Hubspot = () => {
     )
 
   return (
-    <Flex sx={{ flexDirection: 'column' }}>
+    <Layout pageHeading="Hubspot code challenge" title={'Hubspot'}>
       <Button onClick={() => postData(finalPostData)} sx={{ width: 250 }}>
         Post Data
       </Button>
-      <Text sx={{ py: 3 }}>Data to post:</Text>
+      <Text>Data to post:</Text>
       <pre>{JSON.stringify(finalPostData, null, 2)}</pre>
-    </Flex>
+    </Layout>
   )
 }
 
-const HubSpotChallengePage = () => (
-  <Layout pageHeading="Hubspot code challenge" title={'Hubspot'}>
-    <Hubspot />
-  </Layout>
-)
-
-export default HubSpotChallengePage
+export default Hubspot
