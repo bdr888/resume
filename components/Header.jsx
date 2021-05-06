@@ -22,6 +22,11 @@ const Header = () => {
       </Link>
 
       <nav>
+        <Link href="/About">
+          <a sx={{ px: 3, cursor: 'pointer', fontFamily: 'Montserrat' }}>
+            About
+          </a>
+        </Link>
         <Link href="/Resume">
           <a sx={{ px: 3, cursor: 'pointer', fontFamily: 'Montserrat' }}>
             Resume
