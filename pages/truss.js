@@ -6,23 +6,22 @@ import Layout from '@components/Layout'
 import { useFetch } from '../hooks/useFetch'
 
 // take an integer and format with a space at every group of 3 (thousand)
-// https://stackoverflow.com/questions/16637051/adding-space-between-numbers
 const formatNumber = number =>
-  number?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+  number?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') // https://stackoverflow.com/questions/16637051/adding-space-between-numbers
+
+// display a "?" in table if values are unknown
+const formatUnknown = value => (value === 'unknown' ? '?' : value)
 
 // calculate the surface area of a planet that is covered by water
-//  use this calc to confirm: https://www.calculatorsoup.com/calculators/geometry-solids/sphere.php
-const getSurfaceAreaCoveredByWater = (
+const calculateSurfaceAreaCoveredByWater = (
   planetDiameter,
   percentageCoveredByWater
 ) => {
   const planetRadius = planetDiameter / 2
-  const totalSurfaceArea = 4 * Math.PI * Math.pow(planetRadius, 2)
+  const totalSurfaceArea = 4 * Math.PI * Math.pow(planetRadius, 2) //  use this calc to confirm: https://www.calculatorsoup.com/calculators/geometry-solids/sphere.php
   const areaCoveredByWater = totalSurfaceArea * (percentageCoveredByWater / 100)
   return areaCoveredByWater ? formatNumber(Math.round(areaCoveredByWater)) : '?'
 }
-
-const formatUnknown = value => (value === 'unknown' ? '?' : value)
 
 // display planet data in a table (with loading and error states)
 // scroll to load next page of results from swapi
@@ -46,7 +45,7 @@ const Planets = () => {
     )
   }
 
-  // otherwise return the ui with the data
+  // otherwise return the table with the data
   return (
     <>
       <table
@@ -91,7 +90,7 @@ const Planets = () => {
               <td>{formatUnknown(planet.terrain)}</td>
               <td>{formatUnknown(formatNumber(planet.population))}</td>
               <td>
-                {getSurfaceAreaCoveredByWater(
+                {calculateSurfaceAreaCoveredByWater(
                   planet.diameter,
                   planet.surface_water
                 )}
@@ -104,7 +103,7 @@ const Planets = () => {
   )
 }
 
-// page component that provides header, layout, and react-query client
+// page component that provides header, nav, layout, and react-query client
 const TrussWorkSample = () => (
   <Layout pageHeading="Truss work sample" title="Truss">
     <Planets />
