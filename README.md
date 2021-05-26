@@ -5,6 +5,14 @@ Thank you for taking time to look at this work sample. This app is my personal s
 ## Getting Started
 First, clone the repo and navigate to the root of the project.
 
+Then, install the project dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
 Next, run the development server:
 
 ```bash
@@ -12,6 +20,12 @@ npm run dev
 # or
 yarn dev
 ```
+
+Checkout the branch that this feature is being developed on:
+```bash
+git checkout feature/truss
+```
+
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
