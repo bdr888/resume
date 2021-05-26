@@ -24,9 +24,7 @@ const calculateSurfaceAreaCoveredByWater = (
 
 // display planet data in a table (with loading and error states)
 const Planets = () => {
-  const { loading, data, error } = useFetch(
-    'https://swapi.dev/api/planets/?page=3'
-  )
+  const { loading, data, error } = useFetch('https://swapi.dev/api/planets/')
 
   // alphabetically sort the planet data
   const sortedPlanets = data.results.sort((first, second) => {
