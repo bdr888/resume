@@ -47,59 +47,58 @@ const Planets = () => {
 
   // otherwise return the table with the data
   return (
-    <>
-      <table
-        sx={{
-          borderCollapse: 'collapse',
-          border: '1px solid gray',
-          td: { border: '1px solid gray', p: 1 },
-          th: { border: '1px solid gray', p: 1 },
-        }}
-      >
-        <thead>
-          <tr>
-            <th>Planet</th>
-            <th>Climate</th>
-            <th>Residents</th>
-            <th>Terrain</th>
-            <th>Population</th>
-            <th>Surface area water</th>
+    <table
+      sx={{
+        borderCollapse: 'collapse',
+        border: '1px solid gray',
+        mb: 4,
+        td: { border: '1px solid gray', p: 1 },
+        th: { border: '1px solid gray', p: 1 },
+      }}
+    >
+      <thead>
+        <tr>
+          <th>Planet</th>
+          <th>Climate</th>
+          <th>Residents</th>
+          <th>Terrain</th>
+          <th>Population</th>
+          <th>Surface area water</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data?.map(planet => (
+          <tr key={planet.name}>
+            <td>
+              <a
+                href={planet.url}
+                rel="noreferrer"
+                sx={{
+                  px: 3,
+                  cursor: 'pointer',
+                  ':hover': {
+                    color: 'rebeccapurple',
+                  },
+                }}
+                target="_blank"
+              >
+                {planet.name}
+              </a>
+            </td>
+            <td>{formatUnknown(planet.climate)}</td>
+            <td>{planet.residents?.length}</td>
+            <td>{formatUnknown(planet.terrain)}</td>
+            <td>{formatUnknown(formatNumber(planet.population))}</td>
+            <td>
+              {calculateSurfaceAreaCoveredByWater(
+                planet.diameter,
+                planet.surface_water
+              )}
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {data?.map(planet => (
-            <tr key={planet.name}>
-              <td>
-                <a
-                  href={planet.url}
-                  rel="noreferrer"
-                  sx={{
-                    px: 3,
-                    cursor: 'pointer',
-                    ':hover': {
-                      color: 'rebeccapurple',
-                    },
-                  }}
-                  target="_blank"
-                >
-                  {planet.name}
-                </a>
-              </td>
-              <td>{formatUnknown(planet.climate)}</td>
-              <td>{planet.residents?.length}</td>
-              <td>{formatUnknown(planet.terrain)}</td>
-              <td>{formatUnknown(formatNumber(planet.population))}</td>
-              <td>
-                {calculateSurfaceAreaCoveredByWater(
-                  planet.diameter,
-                  planet.surface_water
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
+        ))}
+      </tbody>
+    </table>
   )
 }
 
