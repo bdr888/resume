@@ -27,7 +27,7 @@ const Planets = () => {
   const { loading, data, error } = useFetch('https://swapi.dev/api/planets/')
 
   // alphabetically sort the planet data
-  const sortedPlanets = data.results.sort((first, second) => {
+  const sortedPlanets = data.results?.sort((first, second) => {
     const firstPlanet = first.name.toUpperCase()
     const secondPlanet = second.name.toUpperCase()
     return firstPlanet < secondPlanet ? -1 : firstPlanet > secondPlanet ? 1 : 0
@@ -72,7 +72,7 @@ const Planets = () => {
         </tr>
       </thead>
       <tbody>
-        {sortedPlanets.map(planet => (
+        {sortedPlanets?.map(planet => (
           <tr key={planet.name}>
             <td>
               <a
