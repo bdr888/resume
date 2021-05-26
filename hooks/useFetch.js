@@ -2,14 +2,8 @@ import { useEffect, useState } from 'react'
 
 // recursive function to get all paginated swapi planet data
 async function getAllPlanetData() {
-  const checkStatus = res =>
-    res.ok ? Promise.resolve(res) : Promise.reject(new Error(res.statusText))
-
   // Get the a page of results
-  const getPlanetPage = url =>
-    fetch(url)
-      .then(checkStatus)
-      .then(res => res.json())
+  const getPlanetPage = url => fetch(url).then(res => res.json())
 
   // Recursively get planet pages until data.next is null and all the pages are fetched, collect pages into a single array
   const getAllPlanetPages = async (url, planetCollection = []) => {
@@ -33,7 +27,7 @@ async function getAllPlanetData() {
   return sortedPlanets
 }
 
-// custom hook to fetch data and handle loading, data, and error
+// custom hook to fetch data and provide loading, data, and error
 export const useFetch = url => {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])

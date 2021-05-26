@@ -1,6 +1,5 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-import React from 'react'
 import { jsx, Spinner } from 'theme-ui'
 import Layout from '@components/Layout'
 import { useFetch } from '../hooks/useFetch'
