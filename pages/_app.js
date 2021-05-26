@@ -9,6 +9,10 @@ import { ApolloProvider } from '@apollo/react-hooks'
 function MyApp({ Component, pageProps, apollo }) {
   return (
     <ApolloProvider client={apollo}>
+      <meta
+        content="upgrade-insecure-requests"
+        httpEquiv="Content-Security-Policy"
+      ></meta>
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
