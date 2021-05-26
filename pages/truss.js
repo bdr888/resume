@@ -1,6 +1,6 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
-import { jsx, Spinner } from 'theme-ui'
+import { jsx, Flex, Spinner } from 'theme-ui'
 import Layout from '@components/Layout'
 import { useFetch } from '../hooks/useFetch'
 
@@ -23,9 +23,17 @@ const calculateSurfaceAreaCoveredByWater = (
 }
 
 // display planet data in a table (with loading and error states)
-// scroll to load next page of results from swapi
 const Planets = () => {
-  const { loading, data, error } = useFetch('https://swapi.dev/api/planets/')
+  const { loading, data, error } = useFetch(
+    'https://swapi.dev/api/planets/?page=3'
+  )
+
+  // alphabetically sort the planet data
+  const sortedPlanets = data.results.sort((first, second) => {
+    const firstPlanet = first.name.toUpperCase()
+    const secondPlanet = second.name.toUpperCase()
+    return firstPlanet < secondPlanet ? -1 : firstPlanet > secondPlanet ? 1 : 0
+  })
 
   // if data is loading show a spinner
   if (loading) {
@@ -66,7 +74,7 @@ const Planets = () => {
         </tr>
       </thead>
       <tbody>
-        {data?.map(planet => (
+        {sortedPlanets.map(planet => (
           <tr key={planet.name}>
             <td>
               <a
@@ -81,7 +89,7 @@ const Planets = () => {
                 }}
                 target="_blank"
               >
-                {planet.name}
+                {formatUnknown(planet.name)}
               </a>
             </td>
             <td>{formatUnknown(planet.climate)}</td>
@@ -104,6 +112,26 @@ const Planets = () => {
 // page component that provides header, nav, layout, and react-query client
 const TrussWorkSample = () => (
   <Layout pageHeading="Truss work sample" title="Truss">
+    <Flex sx={{ pb: 3 }}>
+      This is my solution to the requested
+      <a
+        href={
+          'https://github.com/trussworks/truss-interview/blob/main/BROWSER_README.md'
+        }
+        rel="noreferrer"
+        sx={{
+          px: 1,
+          cursor: 'pointer',
+          ':hover': {
+            color: 'rebeccapurple',
+          },
+        }}
+        target="_blank"
+      >
+        work sample.
+      </a>
+      Displaying planet data from the Star Wars API.
+    </Flex>
     <Planets />
   </Layout>
 )

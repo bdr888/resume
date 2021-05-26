@@ -37,7 +37,8 @@ export const useFetch = url => {
     let isStale = false
     setLoading(true)
 
-    getAllPlanetData()
+    fetch(url)
+      .then(res => res.json())
       .then(data => {
         if (!isStale) {
           setData(data)
