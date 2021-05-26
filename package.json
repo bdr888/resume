@@ -25,9 +25,6 @@
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-infinite-scroll-component": "^6.1.0",
-    "react-query": "^3.16.0",
-    "react-table": "^7.7.0",
     "theme-ui": "^0.3.5"
   },
   "devDependencies": {
