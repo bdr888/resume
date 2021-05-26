@@ -107,7 +107,7 @@ const Planets = () => {
   )
 }
 
-// page component that provides header, nav, layout, and react-query client
+// page component that provides header, nav, and layout
 const TrussWorkSample = () => (
   <Layout pageHeading="Truss work sample" title="Truss">
     <Flex sx={{ pb: 3 }}>
