@@ -27,12 +27,13 @@ git checkout feature/truss
 ```
 
 
-Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 Finally, navigate to [http://localhost:3000/truss](http://localhost:3000/truss) to see the work sample. There is a navigation link in the header.
+
 
 ## Files to look at
 The files to be concerned with are `pages/truss.js` (displaying the table of planet data) and `hooks/useFetch.js` (abstracting the fetch into a custom hook to help with loading and error states).
+
+(Please note the other pages in the app will not work without the api key environment variables. See briandridge.com if you are curious).
 
 ## Next.js resources
 
