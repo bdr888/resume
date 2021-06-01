@@ -1,8 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Hi! 
+Thank you for taking time to look at this work sample. This app is my personal site with the work sample added as a page at /truss. 
+
 
 ## Getting Started
+First, clone the repo and navigate to the root of the project.
 
-First, run the development server:
+Then, install the project dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
+Next, run the development server:
 
 ```bash
 npm run dev
@@ -10,15 +21,23 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Checkout the branch that this feature is being developed on:
+```bash
+git checkout feature/truss
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Finally, navigate to [http://localhost:3000/truss](http://localhost:3000/truss) to see the work sample. There is a navigation link in the header.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Files to look at
+The files to be concerned with are `pages/truss.js` (displaying the table of planet data) and `hooks/useFetch.js` (abstracting the fetch into a custom hook to help with loading and error states).
+
+(Please note the other pages in the app will not work without the api key environment variables. See briandridge.com if you are curious).
+
+## Next.js resources
+
+The app is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -26,14 +45,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Weird stuff to know
-
-In Husky v5 git pre-commit hooks do not get created on install. Downgraded specifically to version 4.2.3 to make them work.
-See this issue: https://github.com/typicode/husky/issues/326#issuecomment-769309475
